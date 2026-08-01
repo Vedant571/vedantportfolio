@@ -4,9 +4,11 @@ import {
   Github, Linkedin, Mail, Download, ArrowRight, Sparkles,
   Code2, Cpu, Database, Rocket,
   GraduationCap, Trophy, Briefcase, HeartHandshake,
+  BadgeCheck,
 } from "lucide-react";
 import heroAvatar from "@/assets/hero-avatar.jpg";
 import ResumeModal from "./ResumeModal";
+import { sharedStats as stats } from "@/lib/statsData";
 
 const roles = [
   "Full-Stack Web Developer",
@@ -45,16 +47,17 @@ function StatsCounter({ value, suffix = "" }: { value: number; suffix?: string }
   );
 }
 
-const stats = [
-  { icon: GraduationCap, value: 8.57, suffix: "", label: "CGPA" },
-  { icon: Trophy, value: 1, suffix: "st", label: "Hackathon Winner" },
-  { icon: Briefcase, value: 2, suffix: "+", label: "Internships" },
-  { icon: HeartHandshake, value: 60, suffix: "+", label: "Volunteer Hours" },
-];
-
 const marquee = [
-  "React", "Node.js", "TypeScript", "MongoDB", "PostgreSQL",
-  "Express", "Tailwind", "Next.js", "Python", "AI",
+  "Full-Stack Development",
+  "React.js",
+  "Node.js",
+  "Express.js",
+  "JavaScript (ES6)",
+  "PostgreSQL",
+  "MongoDB",
+  "REST APIs",
+  "Authentication & OAuth",
+  "Prompt Engineering",
 ];
 
 function TypedRoles() {
@@ -131,13 +134,15 @@ function CodeEditor() {
   );
 }
 
-export default function Hero({
-  isResumeOpen,
-  setIsResumeOpen,
-}: {
-  isResumeOpen: boolean;
-  setIsResumeOpen: (open: boolean) => void;
-}) {
+export default function Hero() {
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
+
+  console.log("[Hero] render");
+
+  useEffect(() => {
+    console.log("[Hero] MOUNTED");
+    return () => console.log("[Hero] UNMOUNTED");
+  }, []);
 
   return (
     <section id="top" className="relative min-h-[calc(100vh-var(--navbar-top)-var(--navbar-height,70px))] flex items-center justify-center pb-16 md:pb-24">

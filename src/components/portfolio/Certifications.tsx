@@ -32,12 +32,6 @@ const certs: Certificate[] = [
     date: "Mar 2025",
     credentialId: "YIE-RET-2025-019",
   },
-  { 
-    title: "Technovation — Android Controlled Car", 
-    issuer: "Technovation Challenge", 
-    date: "Oct 2024",
-    credentialId: "TECH-CAR-2024-88",
-  },
 ];
 
 export default function Certifications() {

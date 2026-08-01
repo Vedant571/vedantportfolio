@@ -1,6 +1,14 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 
 export default function BackgroundFX() {
+  console.log("[BackgroundFX] render");
+
+  useEffect(() => {
+    console.log("[BackgroundFX] MOUNTED");
+    return () => console.log("[BackgroundFX] UNMOUNTED");
+  }, []);
+
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
       {/* Grid */}
