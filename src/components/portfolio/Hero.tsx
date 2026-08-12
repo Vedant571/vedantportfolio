@@ -314,16 +314,6 @@ function PhotoFrame() {
           ].map((c, i) => (
             <span key={i} className={`pointer-events-none absolute h-5 w-5 border-primary/70 ${c}`} />
           ))}
-          {/* Scan line accent */}
-          <div className="pointer-events-none absolute inset-x-4 bottom-4 flex items-center justify-between rounded-xl bg-black/40 px-3 py-2 backdrop-blur-md">
-            <div className="flex items-center gap-2">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-green-400" />
-              <span className="font-mono text-[10px] uppercase tracking-widest text-white/80">
-                online · coding
-              </span>
-            </div>
-            <Sparkles className="h-3.5 w-3.5 text-accent" />
-          </div>
         </div>
       </div>
 
