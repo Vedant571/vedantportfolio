@@ -99,7 +99,6 @@ const categories: SkillCategory[] = [
       { name: "Core Java" },
       { name: "C++" },
       { name: "C" },
-      { name: "SQL" },
     ],
   },
   {
@@ -107,8 +106,9 @@ const categories: SkillCategory[] = [
     icon: Database,
     color: "from-amber-500/20 to-orange-500/10",
     skills: [
-      { name: "PostgreSQL" },
+      { name: "SQL" },
       { name: "MongoDB" },
+      { name: "PostgreSQL" },
       { name: "MySQL" },
     ],
   },
