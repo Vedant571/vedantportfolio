@@ -30,7 +30,7 @@ function createRawEmail(
 export const sendContactEmail = createServerFn({ method: "POST" })
   .validator((data: unknown) => contactSchema.parse(data))
   .handler(async ({ data }) => {
-    const recipient = process.env.CONTACT_RECEIVER_EMAIL || "vdntmd@gmail.com";
+    const recipient = process.env.CONTACT_EMAIL || process.env.CONTACT_RECEIVER_EMAIL || "vdntmd@gmail.com";
 
     // 1. Resend API Integration
     const resendApiKey = process.env.RESEND_API_KEY;

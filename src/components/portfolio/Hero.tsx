@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { Link } from "@tanstack/react-router";
 import {
   Github, Linkedin, Mail, Download, ArrowRight, Sparkles,
   Code2, Cpu, Database, Rocket,
@@ -7,7 +8,6 @@ import {
   BadgeCheck,
 } from "lucide-react";
 import heroAvatar from "@/assets/hero-avatar.jpg";
-import ResumeModal from "./ResumeModal";
 import { sharedStats as stats } from "@/lib/statsData";
 
 const roles = [
@@ -135,7 +135,6 @@ function CodeEditor() {
 }
 
 export default function Hero() {
-  const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   console.log("[Hero] render");
 
@@ -181,27 +180,20 @@ export default function Hero() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="#projects"
+              <Link
+                to="/projects"
                 className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-elegant)] transition-all hover:scale-105 hover:shadow-[0_0_40px_oklch(0.65_0.21_258/0.6)]"
               >
                 View Projects
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </a>
-              <a
-                href="#contact"
+              </Link>
+              <Link
+                to="/contact"
                 className="glass inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all hover:bg-primary/10"
               >
                 <Mail className="h-4 w-4" />
                 Contact Me
-              </a>
-              <button
-                onClick={() => setIsResumeOpen(true)}
-                className="glass inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all hover:bg-primary/10 cursor-pointer"
-              >
-                <Download className="h-4 w-4" />
-                Resume
-              </button>
+              </Link>
             </div>
 
             <div className="mt-8 flex items-center gap-3">
@@ -285,7 +277,6 @@ export default function Hero() {
           to { transform: rotate(360deg) translateX(var(--r)) rotate(-360deg); }
         }
       `}</style>
-      <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
     </section>
   );
 }

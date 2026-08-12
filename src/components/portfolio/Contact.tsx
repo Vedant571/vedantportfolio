@@ -147,8 +147,20 @@ export default function Contact() {
             >
               <AlertCircle className="h-4 w-4 shrink-0" />
               <span>
-                Couldn't send your message. Please try again or email me
-                directly.
+                Something went wrong. Please try again or contact me directly by email.
+              </span>
+            </motion.div>
+          )}
+
+          {status === "success" && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-4 flex items-center gap-2 rounded-xl border border-green-500/20 bg-green-500/10 px-4 py-3 text-sm text-green-200"
+            >
+              <Check className="h-4 w-4 shrink-0" />
+              <span>
+                Thanks! Your message has been sent successfully. I'll get back to you soon.
               </span>
             </motion.div>
           )}
@@ -160,11 +172,11 @@ export default function Contact() {
           >
             {status === "loading" ? (
               <>
-                <Loader2 className="h-4 w-4 animate-spin" /> Sending…
+                <Loader2 className="h-4 w-4 animate-spin" /> Sending...
               </>
             ) : status === "success" ? (
               <>
-                <Check className="h-4 w-4" /> Message sent
+                <Check className="h-4 w-4" /> Message Sent Successfully
               </>
             ) : (
               <>
