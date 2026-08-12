@@ -7,7 +7,8 @@ import {
   Calendar, 
   MapPin, 
   Award,
-  Clock
+  Clock,
+  FileText
 } from "lucide-react";
 
 export const Route = createLazyFileRoute("/achievements")({
@@ -124,12 +125,43 @@ function PDFPreview({ pdfUrl, scale = 1.5, className = "" }: { pdfUrl: string; s
 
 // Unified Certificate Preview Component handles PDF/Image dynamically
 function AutoCertificatePreview({ url, scale = 1.2, className = "" }: { url: string; scale?: number; className?: string }) {
-  if (url.toLowerCase().endsWith(".pdf")) {
+  const [loadPdf, setLoadPdf] = useState(false);
+  const isPdf = url.toLowerCase().endsWith(".pdf");
+
+  if (isPdf) {
+    if (!loadPdf) {
+      return (
+        <div 
+          onClick={(e) => {
+            e.stopPropagation();
+            setLoadPdf(true);
+          }}
+          className={`relative overflow-hidden cursor-pointer group/pdf bg-white/[0.02] border border-white/5 hover:border-primary/30 rounded-xl aspect-[4/3] w-full flex flex-col items-center justify-center p-4 transition-all duration-300 ${className}`}
+        >
+          {/* Subtle blue accent glow inside placeholder */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover/pdf:opacity-100 transition-opacity duration-500" />
+          
+          <FileText className="h-10 w-10 text-primary/40 group-hover/pdf:text-primary transition-colors duration-300" />
+          <span className="mt-3 font-mono text-[10px] text-muted-foreground group-hover/pdf:text-foreground uppercase tracking-widest transition-colors duration-300">
+            Interactive PDF
+          </span>
+          <span className="mt-1 text-[9px] text-muted-foreground/60 font-mono">
+            Click to load preview
+          </span>
+        </div>
+      );
+    }
     return <PDFPreview pdfUrl={url} scale={scale} className={className} />;
   }
+
   return (
     <div className={`relative overflow-hidden ${className}`}>
-      <img src={url} alt="Certificate preview" className="w-full h-auto object-contain" />
+      <img 
+        src={url} 
+        alt="Certificate preview" 
+        loading="lazy" 
+        className="w-full h-auto object-contain" 
+      />
     </div>
   );
 }
@@ -659,7 +691,8 @@ function CertificateCard({ item }: { item: CertificateItem }) {
     <motion.div
       variants={cardVariants}
       whileHover={{ y: -6, transition: { duration: 0.3 } }}
-      className="group relative flex flex-col glass rounded-3xl border border-white/10 overflow-hidden transition-all duration-500 hover:border-primary/40 hover:shadow-[0_0_30px_rgba(59,130,246,0.12)] w-full"
+      onClick={() => window.open(item.certificatePdf, "_blank")}
+      className="group relative flex flex-col glass rounded-3xl border border-white/10 overflow-hidden transition-all duration-500 hover:border-primary/40 hover:shadow-[0_0_30px_rgba(59,130,246,0.12)] w-full cursor-pointer"
     >
       {/* 1. Image / Certificate Preview */}
       <div className="relative w-full bg-black/25 flex items-center justify-center border-b border-white/5 p-2">
@@ -745,7 +778,8 @@ function CourseCard({ item }: { item: CourseItem }) {
     <motion.div
       variants={cardVariants}
       whileHover={{ y: -6, transition: { duration: 0.3 } }}
-      className="group relative flex flex-col glass rounded-3xl border border-white/10 overflow-hidden transition-all duration-500 hover:border-primary/40 hover:shadow-[0_0_30px_rgba(59,130,246,0.12)] w-full"
+      onClick={() => window.open(item.certificatePdf, "_blank")}
+      className="group relative flex flex-col glass rounded-3xl border border-white/10 overflow-hidden transition-all duration-500 hover:border-primary/40 hover:shadow-[0_0_30px_rgba(59,130,246,0.12)] w-full cursor-pointer"
     >
       {/* 1. Image / Certificate Preview */}
       <div className="relative w-full bg-black/25 flex items-center justify-center border-b border-white/5 p-2">
