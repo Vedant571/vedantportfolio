@@ -107,9 +107,8 @@ const categories: SkillCategory[] = [
     color: "from-amber-500/20 to-orange-500/10",
     skills: [
       { name: "SQL" },
-      { name: "MongoDB" },
-      { name: "PostgreSQL" },
       { name: "MySQL" },
+      { name: "PostgreSQL" },
     ],
   },
   {
