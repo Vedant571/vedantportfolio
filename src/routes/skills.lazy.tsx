@@ -116,19 +116,13 @@ const categories: SkillCategory[] = [
     icon: Cloud,
     color: "from-cyan-500/20 to-sky-500/10",
     skills: [
-      { name: "AWS" },
       { name: "Git" },
       { name: "GitHub" },
-      { name: "GitHub Actions" },
-      { name: "GitHub Pages" },
       { name: "Visual Studio Code" },
       { name: "Postman" },
       { name: "npm" },
-      { name: "Bun" },
-      { name: "Vite" },
-      { name: "Netlify" },
       { name: "Vercel" },
-      { name: "Render" },
+      { name: "Netlify" },
     ],
   },
   {
@@ -150,7 +144,6 @@ const categories: SkillCategory[] = [
     icon: Layout,
     color: "from-indigo-500/20 to-blue-500/10",
     skills: [
-      { name: "Figma" },
       { name: "Canva" },
       { name: "CapCut" },
       { name: "DaVinci Resolve" },
