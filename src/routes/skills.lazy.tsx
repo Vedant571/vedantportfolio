@@ -94,11 +94,11 @@ const categories: SkillCategory[] = [
     icon: Terminal,
     color: "from-rose-500/20 to-pink-500/10",
     skills: [
+      { name: "C" },
+      { name: "C++" },
       { name: "JavaScript" },
       { name: "Python" },
       { name: "Core Java" },
-      { name: "C++" },
-      { name: "C" },
     ],
   },
   {

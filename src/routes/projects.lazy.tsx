@@ -98,30 +98,9 @@ const projects: Project[] = [
     gradient: "from-teal-500/30 to-cyan-500/20",
     image: "/images/dice_game_screenshot.png",
   },
-  {
-    title: "Android Controlled Car",
-    tagline: "Embedded Robotics Hardware",
-    desc: "Android Controlled Car is a Bluetooth-controlled robotic vehicle developed using Arduino Uno and the HC-05 Bluetooth module. The system enables users to wirelessly control the car from an Android smartphone, demonstrating practical applications of embedded systems, robotics, and Internet of Things (IoT) concepts. The project was successfully developed and presented during Technovation'26.",
-    tech: [
-      "Arduino Uno",
-      "Embedded C",
-      "Arduino IDE",
-      "HC-05 Bluetooth Module",
-      "L298N Motor Driver",
-      "Android Bluetooth Controller",
-      "IoT",
-      "Robotics"
-    ],
-    category: "Embedded",
-    status: "Completed",
-    gradient: "from-rose-500/30 to-red-500/20",
-    image: "/images/android_car.jpg",
-    report: "/certificates/android_car_project_report.pdf",
-    certificate: "/certificates/technovation_cert.pdf"
-  },
 ];
 
-const filters = ["All", "Full-Stack", "Frontend", "Embedded"] as const;
+const filters = ["All", "Full-Stack", "Frontend"] as const;
 
 function ProjectCard({ p }: { p: Project }) {
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
